@@ -1,4 +1,3 @@
-// src/app/page.tsx
 "use client";
 
 import { useMemo, useState } from "react";
@@ -10,7 +9,6 @@ import { skills, maxTotalScore } from "../data/skills";
 import { normalizedToGrade } from "../lib/grade";
 
 export default function Page() {
-  // UI入力の状態
   const [role, setRole] = useState("フロントエンドエンジニア");
   const [name, setName] = useState("");
   const [ratings, setRatings] = useState<Record<string, number>>(
@@ -22,7 +20,7 @@ export default function Page() {
       (sum, s) => sum + (ratings[s.id] ?? 0) * s.weight,
       0
     );
-    const normalized = (total / maxTotalScore) * 100; // 0..100 に正規化
+    const normalized = (total / maxTotalScore) * 100;
     const grade = normalizedToGrade(normalized);
     return { totalWeighted: total, normalized, grade };
   }, [ratings]);
@@ -40,20 +38,19 @@ export default function Page() {
   };
 
   return (
-    <main className="max-w-6xl mx-auto py-10">
-      <div className="card p-8 mb-6">
-        <div className="flex items-center gap-3">
-          <div className="text-3xl">🎯</div>
-          <div>
-            <h1 className="text-2xl font-bold">エンジニア評価基準シート</h1>
-            <p className="text-slate-600">職種別・等級別スキル評価システム</p>
-          </div>
+    <main className="max-w-7xl mx-auto p-10">
+      <div className=" p-10 mb-8 rounded-xl">
+        <div className="items-center flex flex-col gap-2">
+          <h1 className="text-3xl font-extrabold">
+            🎯 エンジニア評価基準シート
+          </h1>
+          <p>職種別・等級別スキル評価システム</p>
         </div>
       </div>
-      <section className="mb-6">
+      <section className="mb-8">
         <LevelPills activeGrade={grade} />
       </section>
-      <section className="mb-6">
+      <section className="mb-8">
         <RoleForm
           role={role}
           name={name}
@@ -62,7 +59,7 @@ export default function Page() {
           onReset={handleReset}
         />
       </section>
-      <section id="score-area" className="mb-6">
+      <section id="score-area" className="mb-8">
         <ScoreHeader normalizedScore={normalized} grade={grade} />
       </section>
       <section>

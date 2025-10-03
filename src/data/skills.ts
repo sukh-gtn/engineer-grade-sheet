@@ -1,4 +1,3 @@
-// src/data/skills.ts
 export type Skill = {
   id: string;
   category: "hard" | "soft";
@@ -8,7 +7,6 @@ export type Skill = {
 };
 
 export const skills: Skill[] = [
-  // --- ハードスキル（職種別専門技術）---
   {
     id: "html",
     category: "hard",

@@ -1,6 +1,3 @@
-// src/components/RoleForm.tsx
-"use client";
-
 export default function RoleForm({
   role,
   name,
@@ -15,12 +12,14 @@ export default function RoleForm({
   onReset: () => void;
 }) {
   return (
-    <div className="card p-6">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-end">
+    <div className="p-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-end">
         <div>
-          <label className="block text-sm font-medium mb-2">職種選択</label>
+          <label className="block text-sm font-semibold mb-2 text-slate-700">
+            職種選択
+          </label>
           <select
-            className="w-full rounded-lg"
+            className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm shadow-sm focus:ring-2 focus:ring-indigo-500"
             value={role}
             onChange={(e) => onChangeRole(e.target.value)}>
             <option>フロントエンドエンジニア</option>
@@ -28,19 +27,24 @@ export default function RoleForm({
             <option>モバイルアプリエンジニア</option>
           </select>
         </div>
+
+        {/* 名前入力 */}
         <div>
-          <label className="block text-sm font-medium mb-2">評価対象者名</label>
+          <label className="block text-sm font-semibold mb-2 text-slate-700">
+            評価対象者名
+          </label>
           <input
-            className="w-full rounded-lg"
+            className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm shadow-sm placeholder-slate-400 focus:ring-2 focus:ring-indigo-500"
             placeholder="氏名を入力"
             value={name}
             onChange={(e) => onChangeName(e.target.value)}
           />
         </div>
-        <div className="flex gap-3">
+
+        {/* ボタンエリア */}
+        <div className="flex gap-4">
           <button
-            className="inline-flex items-center justify-center rounded-lg bg-indigo-600 text-white px-5 py-3 font-medium hover:bg-indigo-500 transition w-full md:w-auto"
-            // 計算は自動なのでスクロールだけ
+            className="flex-1 md:flex-none inline-flex items-center justify-center rounded-xl bg-indigo-600 text-white px-6 py-3 font-semibold shadow hover:bg-indigo-500 transition"
             onClick={() => {
               document
                 .getElementById("score-area")
@@ -49,7 +53,7 @@ export default function RoleForm({
             スコア計算
           </button>
           <button
-            className="inline-flex items-center justify-center rounded-lg bg-white px-5 py-3 font-medium border border-slate-200 hover:bg-slate-50 transition w-full md:w-auto"
+            className="flex-1 md:flex-none inline-flex items-center justify-center rounded-xl bg-slate-100 text-slate-700 px-6 py-3 font-semibold border border-slate-300 hover:bg-slate-200 transition"
             onClick={onReset}>
             リセット
           </button>

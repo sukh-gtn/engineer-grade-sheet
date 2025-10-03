@@ -1,14 +1,11 @@
 /* src/app/globals.css */
 @import "tailwindcss";
-/* v4 のプラグインは CSS で追加します */
 @plugin "@tailwindcss/forms";
 
-/* Tailwind v4 のテーマ変数。ここで独自の影(= shadow-elev)を定義 */
 @theme {
   --shadow-elev: 0 10px 30px rgba(0 0 0 / 0.08);
 }
 
-/* ベースと共通コンポーネント */
 @layer base {
   body {
     @apply antialiased;

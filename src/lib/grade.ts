@@ -1,5 +1,4 @@
-// src/lib/grade.ts
-export type Level = { grade: number; salaryManYen: number }; // 万円
+export type Level = { grade: number; salaryManYen: number };
 
 export const LEVELS: Level[] = [
   { grade: 1, salaryManYen: 400 },
@@ -14,7 +13,6 @@ export const LEVELS: Level[] = [
   { grade: 10, salaryManYen: 850 },
 ];
 
-// 0..100 に正規化したスコアから等級を求める（10 点刻み）
 export function normalizedToGrade(normalized: number): number {
   const g = Math.floor(normalized / 10) + 1;
   return Math.max(1, Math.min(10, g));
